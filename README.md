@@ -1,11 +1,10 @@
-#The Social Network
+#Buff Network
 
 ##Who:
 Dominic Deckys
 Isaiah Sierra
 Tao Li
 Peng Yan
-Here
 
 ##Description: 
 We will be creating an app that provides you with the capability to connect with people who attend your university, requiring them to have a @colroado.edu email address to sign up. We will create a user fiendly UI, usable only through mobile devices, creating simplicity for the user. We will make it easy for you to interact with your friends and make new ones along the way.
