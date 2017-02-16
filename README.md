@@ -13,12 +13,12 @@ We will be creating an app that provides you with the capability to connect with
 We envision a world were interconnectivity is in the palm of your hand. The constantly changing realm of social networks has become an integral part of our lives, and we strive to create the network that interacts with everything and that will move us towards a more connected world.
 
 ##Motivation:
-1.  The social network gives the college students the platform to make friends.
-2.	The social network enable the college students to see other people’s life.
-3.	Simple way to connect the people from all over the world.
-4.	The social network offers a lot entertainment for college students
-5.	The social network can keep you out of reality 
-6.	The social network offers a lot of knowledges for college students to study.
+- As you adults we like to have our social circle all in one place
+- We like to easily connect with our friends and peers
+-	We like to be distracted from our day today
+-	We want to be able to share knowledge and ideas with others at our university
+- It isnt always easy to connect with someone in person because of the regular day to day of our busy schedules as a student
+- It isn't always easy to make friends on your campus, we want to be able to make friends fast and within our interest
 
 ##Risks:
 1.	We will use Android system for this App. So far just one group member is familiar with it. Others of us need study it by ourselves.
