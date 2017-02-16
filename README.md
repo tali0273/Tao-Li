@@ -21,9 +21,9 @@ We envision a world were interconnectivity is in the palm of your hand. The cons
 - It isn't always easy to make friends on your campus, we want to be able to make friends fast and within our interest
 
 ##Risks:
-1.	We will use Android system for this App. So far just one group member is familiar with it. Others of us need study it by ourselves.
-2.	We have some experience about this the similar App or website, like Tinder or facebook. But we think that’s not enough. We want to do some better.
-3.	We need some special information. For example, we need to collect some social information in the special, just like CU Boulder students information(e.g. email address, daily news and so on)  
+- We will use Android system for this App. So far just one group member is familiar with it. Others of us need study it by ourselves.
+- We have some experience about this the similar App or website, like Tinder or facebook. But we think that’s not enough. We want to do some better.
+- We need some special information. For example, we need to collect some social information in the special, just like CU Boulder students information(e.g. email address, daily news and so on)  
 
 ##Mitigation Strategy For Dealing With Risk:
 1.	We need to study how to use Android system. And we need more group meeting to talk about the problem we meet.
