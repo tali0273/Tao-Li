@@ -39,4 +39,4 @@ We envision a world were interconnectivity is in the palm of your hand. The cons
 6.	Location: “As a university student I want to be able to see what sorts of things there are to do nearby (i.e. food, bars, events, etc.) so I can build a sense of community in my college town.” (Story Points: 5)
 
 ##Project Tracking Software:
-We will be using Github's build in tracking softwhere: https://github.com/tali0273/csci3308-project/milestones
+We will be using Github's build in tracking softwhere Issues and Milestones: https://github.com/tali0273/csci3308-project/milestones
