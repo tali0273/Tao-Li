@@ -21,6 +21,7 @@ We envision a world were interconnectivity is in the palm of your hand. The cons
 5.	The social network can keep you out of reality 
 6.	The social network offers a lot of knowledges for college students to study.
 7.	The college students can check any news nearby.
+
 ##Risks:
 1.	We will use Android system for this App. So far just one group member is familiar with it. Others of us need study it by ourselves.
 2.	We have some experience about this the similar App or website, like Tinder or facebook. But we think that’s not enough. We want to do some better.
@@ -35,4 +36,5 @@ We envision a world were interconnectivity is in the palm of your hand. The cons
 2.	Develop a Profile Database: “As a user, I want to be able to see my friend’s profiles with information about themselves so that I can learn more about people in my social group.” (Story Points: 5)
 3.	Create Personal Profiles: “As a student I want to be able to personalize my profile with information about myself so that people can learn more about me and I can meet new people.” (Story Points: 5)
 4. Create private messaging: "As a college student I want to be able to message easily so that I can communicate with my friends." (Story Points: 8)
-5. Friend feed：As a students, I want to know what my closed classmates are doing, so I can share some information what I know or ask some question.
+5. Friend feed："As a students, I want to know what my close classmates are doing, so I can interact with them, whether that be for study purposes or just to hang out." (Story Points: 3)
+6.	Location: “As a university student I want to be able to see what sorts of things there are to do nearby (i.e. food, bars, events, etc.) so I can build a sense of community in my college town.” (Story Points: 5)
