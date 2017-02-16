@@ -2,7 +2,7 @@
 
 ##Who:
 Dominic Deckys
-Put
+Isaiah Sierra
 Your
 Names
 Here
@@ -24,8 +24,8 @@ We envision a world were interconnectivity is in the palm of your hand. The cons
 
 ##Requirements:
 ###User Stories:
-1.	Create UI Shell: “As a student, I want to be able to quickly navigate the social circle in my area so that I can interact with my friends and make new friends near me.” (Story Points: 13)
+1.	Create UI Shell: “As a student, I want to be able to quickly navigate the social circle in my area so that I can interact with my friends and make new friends near me.” (Story Points: 8)
 2.	Develop a Profile Database: “As a user, I want to be able to see my friend’s profiles with information about themselves so that I can learn more about people in my social group.” (Story Points: 5)
 3.	Create Personal Profiles: “As a student I want to be able to personalize my profile with information about myself so that people can learn more about me and I can meet new people.” (Story Points: 5)
 4. Create private messaging: "As a college student I want to be able to message easily so that I can communicate with my friends." (Story Points: 8)
-###Requirements:
+
