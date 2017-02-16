@@ -35,4 +35,5 @@ We envision a world were interconnectivity is in the palm of your hand. The cons
 2.	Develop a Profile Database: “As a user, I want to be able to see my friend’s profiles with information about themselves so that I can learn more about people in my social group.” (Story Points: 5)
 3.	Create Personal Profiles: “As a student I want to be able to personalize my profile with information about myself so that people can learn more about me and I can meet new people.” (Story Points: 5)
 4. Create private messaging: "As a college student I want to be able to message easily so that I can communicate with my friends." (Story Points: 8)
-5. Friend feed：As a students, I want to know what my closed classmates are doing, so I can share some information what I know or ask some question.
+5. Friend Feed："As a students, I want to know what my close classmates are doing, so I can easily interact with my freinds on assignments." (Story Points: 8)
+6.	Location: “As a university student I want to be able to see what sorts of things there are to do nearby (i.e. food, bars, events, etc.) so I can build a sense of community in my college town.” (Story Points: 5)
