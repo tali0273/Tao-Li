@@ -24,5 +24,5 @@ We envision a world were interconnectivity is in the palm of your hand. The cons
 
 ##Requirements:
 ###User Stories:
-1) As a college student I want to be able to message easily so that I can communicate with my friends
+1) Create private messaging: As a college student I want to be able to message easily so that I can communicate with my friends
 ###Requirements:
