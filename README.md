@@ -38,5 +38,8 @@ We envision a world were interconnectivity is in the palm of your hand. The cons
 5. Friend Feed："As a students, I want to know what my close classmates are doing, so I can easily interact with my freinds on assignments." (Story Points: 8)
 6.	Location: “As a university student I want to be able to see what sorts of things there are to do nearby (i.e. food, bars, events, etc.) so I can build a sense of community in my college town.” (Story Points: 5)
 
+##Methodology:
+We will be using the Agile methodology.
+
 ##Project Tracking Software:
 We will be using Github's build in tracking softwhere Issues and Milestones: https://github.com/tali0273/csci3308-project/milestones
