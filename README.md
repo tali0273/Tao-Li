@@ -13,7 +13,7 @@ We will be creating an app that provides you with the capability to connect with
 ##Vision Statement:
 We envision a world were interconnectivity is in the palm of your hand. The constantly changing realm of social networks has become an integral part of our lives, and we strive to create the network that interacts with everything and that will move us towards a more connected world.
 
-##Motivation
+##Motivation:
 1.	College students need to make some friends. The social network gives them the platform to make friends.
 2.	The social network helps the college students to see other people’s life
 3.	Simple way to connect the people from all over the world.
@@ -22,3 +22,7 @@ We envision a world were interconnectivity is in the palm of your hand. The cons
 6.	The social network offers a lot of knowledges for college students to study.
 7.	The college students can check any news nearby.
 
+##Requirements:
+###User Stories:
+
+###Requirements:
