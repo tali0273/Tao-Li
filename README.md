@@ -1,4 +1,4 @@
-#Buff Network
+#Social Buff
 
 ##Who:
 Dominic Deckys
