@@ -12,6 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import static com.example.isaia.socialbuff.R.id.fab;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -22,12 +26,12 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        TextView main_text = (TextView) findViewById(R.id.main_text)
+        FloatingActionButton fab = (FloatingActionButton) findViewById(fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "You have opened your messages.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -81,16 +85,22 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            Toast.makeText(this, "You Opened Your Profile", Toast.LENGTH_LONG).show();
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            Toast.makeText(this, "You Opened Your Photos", Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_slideshow) {
+            Toast.makeText(this, "You Opened Your Messages", Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_manage) {
+            Toast.makeText(this, "You Opened Your Settings", Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_share) {
+            Toast.makeText(this, "Let's Share", Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_send) {
+            Toast.makeText(this, "Sent.", Toast.LENGTH_LONG).show();
 
         }
 
