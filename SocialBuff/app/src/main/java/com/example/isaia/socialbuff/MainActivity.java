@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            startActivity(new Intent(MainActivity.this, ProfilePage.class));
+            startActivity(new Intent(MainActivity.this, ProfilePage2.class));
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
             Toast.makeText(this, "You Opened Your Photos", Toast.LENGTH_LONG).show();
