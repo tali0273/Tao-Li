@@ -1,5 +1,6 @@
 package com.example.isaia.socialbuff;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,8 +27,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        TextView main_text = (TextView) findViewById(R.id.main_text)
-        FloatingActionButton fab = (FloatingActionButton) findViewById(fab);
+        TextView main_text = (TextView) findViewById(R.id.main_text);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this, "You Opened Your Messages", Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_manage) {
-            Toast.makeText(this, "You Opened Your Settings", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
 
         } else if (id == R.id.nav_share) {
             Toast.makeText(this, "Let's Share", Toast.LENGTH_LONG).show();
