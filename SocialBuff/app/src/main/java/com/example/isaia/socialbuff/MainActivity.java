@@ -1,5 +1,6 @@
 package com.example.isaia.socialbuff;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "You have opened your messages.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                startActivity(new Intent(MainActivity.this, MessageActivity.class));
             }
         });
 
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            Toast.makeText(this, "You Opened Your Profile", Toast.LENGTH_LONG).show();
             startActivity(new Intent(MainActivity.this, ProfilePage2.class));
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
@@ -93,9 +96,12 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
             Toast.makeText(this, "You Opened Your Messages", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(MainActivity.this, MessageActivity.class));
 
         } else if (id == R.id.nav_manage) {
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            Toast.makeText(this, "You Opened Your Settings", Toast.LENGTH_LONG).show();
+            //startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            //Need a settin menu here
 
         } else if (id == R.id.nav_share) {
             Toast.makeText(this, "Let's Share", Toast.LENGTH_LONG).show();
