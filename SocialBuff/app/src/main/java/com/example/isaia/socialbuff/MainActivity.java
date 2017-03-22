@@ -103,9 +103,7 @@ public class MainActivity extends AppCompatActivity
         else if(id == R.id.sign_out){
             //Need to close entire activity when logging out
             sign_out();
-
         }
-
         return super.onOptionsItemSelected(item);
     }
     private void sign_out(){
