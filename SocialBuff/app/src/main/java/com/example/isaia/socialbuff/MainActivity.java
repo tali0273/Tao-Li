@@ -21,6 +21,7 @@ import static com.example.isaia.socialbuff.R.id.fab;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    boolean sign_out = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    public void onPause(){
+            super.onPause();
+    }
+
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -75,7 +81,13 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            //Setting Activity
             return true;
+        }
+        else if(id == R.id.sign_out){
+            //Need to close entire activity when logging out
+            //sign_out();
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
