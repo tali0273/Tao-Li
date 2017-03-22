@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "You have opened your messages.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                startActivity(new Intent(MainActivity.this, MessageActivity.class));
             }
         });
 
@@ -99,7 +100,8 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
             Toast.makeText(this, "You Opened Your Settings", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            //startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            //Need a settin menu here
 
         } else if (id == R.id.nav_share) {
             Toast.makeText(this, "Let's Share", Toast.LENGTH_LONG).show();
