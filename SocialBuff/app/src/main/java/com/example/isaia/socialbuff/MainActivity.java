@@ -1,5 +1,7 @@
 package com.example.isaia.socialbuff;
 
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             Toast.makeText(this, "You Opened Your Profile", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(MainActivity.this, ProfilePage2.class));
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
             Toast.makeText(this, "You Opened Your Photos", Toast.LENGTH_LONG).show();
@@ -95,6 +98,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
             Toast.makeText(this, "You Opened Your Settings", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
 
         } else if (id == R.id.nav_share) {
             Toast.makeText(this, "Let's Share", Toast.LENGTH_LONG).show();
