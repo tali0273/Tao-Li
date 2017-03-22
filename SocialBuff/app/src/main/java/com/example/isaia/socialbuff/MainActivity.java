@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
             Toast.makeText(this, "You Opened Your Messages", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(MainActivity.this, MessageActivity.class));
 
         } else if (id == R.id.nav_manage) {
             Toast.makeText(this, "You Opened Your Settings", Toast.LENGTH_LONG).show();
