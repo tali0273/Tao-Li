@@ -1,5 +1,9 @@
 package com.example.isaia.socialbuff;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +14,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -60,6 +65,17 @@ public class MessageActivity extends AppCompatActivity {
             }
         });
 
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.package.ACTION_LOGOUT");
+        registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Log.d("onReceive","Logout in progress");
+                //At this point you should start the login activity and finish this one
+                finish();
+            }
+        }, intentFilter);
+
     }
 
 
@@ -81,10 +97,19 @@ public class MessageActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        else if(id == R.id.sign_out){
+            //Need to close entire activity when logging out
+            sign_out();
+
+        }
 
         return super.onOptionsItemSelected(item);
     }
-
+    private void sign_out(){
+        Intent broadcastIntent = new Intent();
+        broadcastIntent.setAction("com.package.ACTION_LOGOUT");
+        sendBroadcast(broadcastIntent);
+    }
     /**
      * A placeholder fragment containing a simple view.
      */
