@@ -12,8 +12,12 @@
 We envision a world were interconnectivity is in the palm of your hand. The constantly changing realm of social networks has become an integral part of our lives, and we strive to create the network that interacts with everything and that will move us towards a more connected world.
 
 ## Automated Test
-EXPLANATION AND SCREENSHOT
-
+### Images
+![alt tag](http://i.imgur.com/XOxpYxH.png)
+![alt tag](http://i.imgur.com/R9GElgQ.png)
+![alt tag](http://i.imgur.com/PMiwgfR.png)
+### Description
+We performed two types of automated tests on our code. The first tested our implementation of the SQL server and attempted to perform queries on it. However, this test was not successful and the code failed to even make a connection with the server. The second test utilized the performance benchmark application JProfiler. As can be observed at about second two on the timeline, when the application was launched, the application generates a seeminly excessive amount of threads, and additionally some (red) threads that failed to launch. This has exposed a problem in the inital setup of our app, and we may need to review the code in our login page to ensure that all of the objects and functionality that we need are being loaded in properly.
 ## User Acceptance Tests
 ### LoginTest
 #### Use case name:
