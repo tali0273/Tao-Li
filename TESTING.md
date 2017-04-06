@@ -1,11 +1,15 @@
-Test Case
+# Test Case
 
-Who: 
+## Who: 
+
   -Isaiah Sierra-Baron
+  
   -Dominic Deckys
+  
   -Peng Yan
+  
   -Tao Li
  
-Title: Social Buff
+## Title: Social Buff
 
 Vision:
