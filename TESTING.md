@@ -16,33 +16,33 @@ EXPLANATION AND SCREENSHOT
 
 ## User Acceptance Tests
 ### LoginTest
-Use case name:
+#### Use case name:
 	Verify login with valid “@colorado.edu” and password
 	
-Description:
+#### Description:
 	Test the SocialBuff login page
 	
-Pre-conditions:
+#### Pre-conditions:
 	User has valid username (“@colorado”) and password (enough long)
 	
-Test steps:
+#### Test steps:
 1. Navigate to login page
 2. Provide valid user name (“XXX@colorado.edu”)
 3. Provide valid password (enough long)
 4. Click login button
 
-Expected result:
+#### Expected result:
 	User should be able to login
 	
-Actual result:
+#### Actual result:
 	User is navigated to mainActivity with successful login
 	
-Status (Pass/Fail):
+#### Status (Pass/Fail):
 	Pass
 	
-Notes:
+#### Notes:
 	N/A
 	
-Post-conditions:
+#### Post-conditions:
 	User is validated with database and successfully signed into their account.
  	The account session details are logged in database.
