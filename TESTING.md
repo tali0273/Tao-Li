@@ -46,9 +46,7 @@ EXPLANATION AND SCREENSHOT
 #### Post-conditions:
 	User is validated with database and successfully signed into their account.
  	The account session details are logged in database.
-	
-	
-### Sign out
+### sign out:
 
 #### Use case name:
 
@@ -83,8 +81,6 @@ EXPLANATION AND SCREENSHOT
     N/A
 #### Post-conditions:
     User will go back to the login page or they can sign in with another account.
-    
-    
 ### Activity navigation (Open and close activity)
 
 #### Use case name:
