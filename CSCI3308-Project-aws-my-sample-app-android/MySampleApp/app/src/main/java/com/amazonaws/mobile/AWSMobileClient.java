@@ -13,9 +13,7 @@ import android.util.Log;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.mobile.user.IdentityManager;
-import com.amazonaws.mobileconnectors.cognito.CognitoSyncManager;
 import com.amazonaws.regions.Regions;
-import com.amazonaws.mobile.content.UserFileManager;
 
 /**
  * The AWS Mobile Client bootstraps the application to make calls to AWS 
@@ -143,15 +141,6 @@ public class AWSMobileClient {
     }
 
     /**
-     * Gets the Amazon Cognito Sync Manager, which is responsible for saving and
-     * loading user profile data, such as game state or user settings.
-     * @return sync manager
-     */
-    public CognitoSyncManager getSyncManager() {
-        return identityManager.getSyncManager();
-    }
-
-    /**
      * Creates and initialize the default AWSMobileClient if it doesn't already
      * exist using configuration constants from {@link AWSConfiguration}.
      *
@@ -174,30 +163,6 @@ public class AWSMobileClient {
             AWSMobileClient.setDefaultMobileClient(awsClient);
         }
         Log.d(LOG_TAG, "AWS Mobile Client is OK");
-    }
-
-    /**
-     * Creates a User File Manager instance, which facilitates file transfers
-     * between the device and the specified Amazon S3 (Simple Storage Service) bucket.
-     *
-     * @param s3Bucket Amazon S3 bucket
-     * @param s3FolderPrefix Folder pre-fix for files affected by this user file
-     *                       manager instance
-     * @param resultHandler handles the resulting UserFileManager instance
-     */
-    public void createUserFileManager(final String s3Bucket,
-                                      final String s3FolderPrefix,
-                                      final Regions region,
-                                      final UserFileManager.BuilderResultHandler resultHandler) {
-
-        new UserFileManager.Builder().withContext(context)
-            .withIdentityManager(getIdentityManager())
-            .withS3Bucket(s3Bucket)
-            .withS3ObjectDirPrefix(s3FolderPrefix)
-            .withLocalBasePath(context.getFilesDir().getAbsolutePath())
-            .withClientConfiguration(clientConfiguration)
-            .withRegion(region)
-            .build(resultHandler);
     }
 
 }

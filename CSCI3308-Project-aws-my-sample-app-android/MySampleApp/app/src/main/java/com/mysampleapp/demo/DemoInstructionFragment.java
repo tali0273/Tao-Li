@@ -1,7 +1,6 @@
 package com.mysampleapp.demo;
 
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -135,20 +134,6 @@ public class DemoInstructionFragment extends DemoFragmentBase {
         });
 
         listView.setBackgroundColor(Color.WHITE);
-
-        final UserSettings userSettings = UserSettings.getInstance(getContext());
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(final Void... params) {
-                userSettings.loadFromDataset();
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(final Void aVoid) {
-                listView.setBackgroundColor(userSettings.getBackgroudColor());
-            }
-        }.execute();
     }
 
     private int dpToPixel(int sizeInDp) {

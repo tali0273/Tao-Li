@@ -28,18 +28,9 @@ import android.widget.ListView;
 
 import com.amazonaws.mobile.AWSMobileClient;
 import com.amazonaws.mobile.user.IdentityManager;
-import com.amazonaws.mobileconnectors.cognito.Dataset;
-import com.amazonaws.mobileconnectors.cognito.DefaultSyncCallback;
-import com.amazonaws.mobileconnectors.cognito.Record;
 import com.mysampleapp.demo.DemoConfiguration;
 import com.mysampleapp.demo.HomeDemoFragment;
-import android.content.IntentFilter;
-import android.content.BroadcastReceiver;
-import android.support.v4.content.LocalBroadcastManager;
-
 import com.mysampleapp.navigation.NavigationDrawer;
-import com.mysampleapp.demo.UserSettings;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     /** Class name for log messages. */
@@ -158,11 +149,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         setupSignInButtons();
-        // register settings changed receiver.
-        LocalBroadcastManager.getInstance(this).registerReceiver(settingsChangedReceiver,
-            new IntentFilter(UserSettings.ACTION_SETTINGS_CHANGED));
-        updateColor();
-        syncUserSettings();
     }
 
     @Override
@@ -195,20 +181,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // ... add any other button handling code here ...
 
     }
-    
-    private final BroadcastReceiver settingsChangedReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.d(LOG_TAG, "Received settings changed local broadcast. Update theme colors.");
-            updateColor();
-        }
-    };
 
     @Override
     protected void onPause() {
         super.onPause();
-
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(settingsChangedReceiver);
     }
 
     @Override
@@ -241,50 +217,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         super.onBackPressed();
-    }
-
-    private void syncUserSettings() {
-        // sync only if user is signed in
-        if (AWSMobileClient.defaultMobileClient().getIdentityManager().isUserSignedIn()) {
-            final UserSettings userSettings = UserSettings.getInstance(getApplicationContext());
-            userSettings.getDataset().synchronize(new DefaultSyncCallback() {
-                @Override
-                public void onSuccess(final Dataset dataset, final List<Record> updatedRecords) {
-                    super.onSuccess(dataset, updatedRecords);
-                    Log.d(LOG_TAG, "successfully synced user settings");
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            updateColor();
-                        }
-                    });
-                }
-            });
-        }
-    }
-
-    public void updateColor() {
-        final UserSettings userSettings = UserSettings.getInstance(getApplicationContext());
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(final Void... params) {
-                userSettings.loadFromDataset();
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(final Void aVoid) {
-                toolbar.setTitleTextColor(userSettings.getTitleTextColor());
-                toolbar.setBackgroundColor(userSettings.getTitleBarColor());
-                final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.main_fragment_container);
-                if (fragment != null) {
-                    final View fragmentView = fragment.getView();
-                    if (fragmentView != null) {
-                        fragmentView.setBackgroundColor(userSettings.getBackgroudColor());
-                    }
-                }
-            }
-        }.execute();
     }
 
 
