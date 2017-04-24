@@ -18,28 +18,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MY FEED"
+        android:layout_centerHorizontal="true"
         android:textColor="#DAA520"
         android:textStyle="bold|italic"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:background="@drawable/activity_title"
+        android:layout_margin="0dp"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/main_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp">
+        android:layout_marginTop="22dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/feed_example1"
                 android:textColor="#000000"
-                android:background="#DAA520"
+                android:background="@drawable/newsfeed_border"
                 android:id="@+id/Feed1" />
 
 
@@ -47,40 +52,121 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="LIKE"
-                android:id="@+id/Like1"/>
+                android:id="@+id/Like1"
+                android:background="#848484"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textLongMessage"
+                    android:ems="6"
+                    android:layout_toRightOf="@id/Like1"
+                    android:id="@+id/editText1" />
+
+            </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/feed_example1"
                 android:textColor="#000000"
-                android:id="@+id/Feed2" />
+                android:id="@+id/Feed2"
+                android:background="@drawable/newsfeed_border"
+                android:layout_marginTop="27dp"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="LIKE"
-                android:id="@+id/Like2"/>
+                android:id="@+id/Like2"
+                android:background="#848484"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="10dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:ems="10"
+                    android:layout_toRightOf="@id/Like1"
+                    android:id="@+id/editText2" />
+
+            </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/feed_example3"
                 android:textColor="#000000"
-                android:id="@+id/Feed3" />
+                android:id="@+id/Feed3"
+                android:background="@drawable/newsfeed_border"
+                android:layout_marginTop="27dp"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="LIKE"
-                android:id="@+id/Like3"/>
+                android:id="@+id/Like3"
+                android:background="#848484"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="10dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:ems="10"
+                    android:layout_toRightOf="@id/Like1"
+                    android:id="@+id/editText3" />
+
+            </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/feed_example2"
                 android:textColor="#000000"
-                android:id="@+id/Feed4" />
+                android:id="@+id/Feed4"
+                android:background="@drawable/newsfeed_border"
+                android:layout_marginTop="27dp"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="LIKE"
-                android:id="@+id/Like4"/>
+                android:id="@+id/Like4"
+                android:background="#848484"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="10dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:ems="10"
+                    android:layout_toRightOf="@id/Like1"
+                    android:id="@+id/editText4" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
