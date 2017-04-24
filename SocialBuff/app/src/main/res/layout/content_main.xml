@@ -17,5 +17,72 @@
         android:id="@+id/main_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User Feed" />
+        android:text="MY FEED"
+        android:textColor="#DAA520"
+        android:textStyle="bold|italic"
+        android:textSize="30sp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/main_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feed_example1"
+                android:textColor="#000000"
+                android:background="#DAA520"
+                android:id="@+id/Feed1" />
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LIKE"
+                android:id="@+id/Like1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feed_example1"
+                android:textColor="#000000"
+                android:id="@+id/Feed2" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LIKE"
+                android:id="@+id/Like2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feed_example3"
+                android:textColor="#000000"
+                android:id="@+id/Feed3" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LIKE"
+                android:id="@+id/Like3"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feed_example2"
+                android:textColor="#000000"
+                android:id="@+id/Feed4" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LIKE"
+                android:id="@+id/Like4"/>
+        </LinearLayout>
+    </ScrollView>
+
+
 </RelativeLayout>

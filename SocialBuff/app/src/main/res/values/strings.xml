@@ -9,10 +9,10 @@
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
+    <string name="prompt_password">Password </string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Social Buff</string>
-    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_email">Invalid email must be @colorado.edu</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
@@ -96,4 +96,17 @@
     <string name="title_activity_profile_page2">ProfilePage2</string>
     <string name="title_activity_message">Messages</string>
     <string name="section_format">Message Feed</string>
+
+    <!-- News Feed -->
+    <string name="feed_example1">"
+        Christian Wood - We would like to thank everyone that submits statuses to the site. Many get rejected because we don't think they are funny, or they are unreadable, or they are to inappropriate and offensive.
+        "</string>
+    <string name="feed_example2">"
+        Donald Trump - @katyperry Katy, what the hell were you thinking when you married loser Russell Brand. There is a guy who has got nothing going, a waste!
+        "</string>
+    <string name="feed_example3">"
+        Mary Jane - Natoque elementum molestie justo etiam molestie vitae lectus eros semper dis, natoque venenatis non enim proin. Suscipit, magna. Enim varius vestibulum velit lectus enim egestas. Bibendum ullamcorper quisque pulvinar hendrerit imperdiet etiam. Hac etiam Duis velit in netus cubilia fringilla litora habitant, justo dictumst nisi integer quisque vel.
+
+Nonummy mauris curae;, aliquam gravida leo curabitur mauris turpis non quisque suspendisse auctor enim, leo magnis eget mattis ullamcorper sagittis mattis. Ac blandit ornare. Facilisi quam a. Risus molestie, mus auctor Rhoncus gravida. Quis dictum consequat potenti aptent integer laoreet facilisis nostra aliquam Faucibus. Mattis diam, ut ullamcorper euismod turpis. Fusce pharetra.
+        "</string>
 </resources>
