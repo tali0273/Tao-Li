@@ -109,4 +109,13 @@
 
 Nonummy mauris curae;, aliquam gravida leo curabitur mauris turpis non quisque suspendisse auctor enim, leo magnis eget mattis ullamcorper sagittis mattis. Ac blandit ornare. Facilisi quam a. Risus molestie, mus auctor Rhoncus gravida. Quis dictum consequat potenti aptent integer laoreet facilisis nostra aliquam Faucibus. Mattis diam, ut ullamcorper euismod turpis. Fusce pharetra.
         "</string>
+
+    <!-- Profile Page -->
+    <string name="profile_example">"
+        BoulderBandidio
+        AGE: 22
+        MAJOR: Electrical and Computer Engineering
+        YEAR: 17'
+        HOBBIES: Gymnastics, Hiking, etc.
+        "</string>
 </resources>
