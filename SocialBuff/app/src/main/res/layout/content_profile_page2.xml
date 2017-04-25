@@ -10,18 +10,14 @@
 
 
 
-    <ScrollView
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/profile_example"
-            android:textSize="20sp"
-            android:textColor="#000000"
-            android:gravity="center"/>
-        </ScrollView>
+        android:layout_height="wrap_content"
+        android:id="@+id/list"
+        android:contextClickable="false"
+        android:text="@string/profile_example"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:gravity="center"/>
 
 </android.support.v4.widget.NestedScrollView>
