@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="MY FEED"
         android:layout_centerHorizontal="true"
-        android:textColor="#DAA520"
+        android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold|italic"
         android:textSize="30sp"
         android:background="@drawable/activity_title"
@@ -37,7 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:layout_margin="10sp">
 
             <TextView
                 android:layout_width="wrap_content"

@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/list"
         android:contextClickable="false"
-        android:text="@string/profile_example"
         android:textSize="20sp"
         android:textColor="#000000"
         android:gravity="center"/>
