@@ -23,8 +23,9 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:titleEnabled="false">
 
+
             <TextView
-                android:text="Name Here"
+                android:text="Isaiah Sierra"
                 android:layout_width="match_parent"
                 android:layout_height="33dp"
                 android:id="@+id/textView"
@@ -46,7 +47,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/coloradobuffalo"
+                app:srcCompat="@drawable/cr"
                 android:id="@+id/imageView3"
                 android:paddingTop="50dp"
                 android:paddingBottom="10dp" />

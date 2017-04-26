@@ -27,8 +27,17 @@ public class ProfilePage2 extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.list);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        String[] values = new String[] {"The List of profile contents", "Date of birth", "Other"};
-        ArrayList<String> valueslist = new ArrayList<String>();
+        /**String[] values = new String[] {"\n" +
+                "        BoulderBandidio\n" +
+                "        AGE: 22\n" +
+                "        MAJOR: Electrical and Computer Engineering\n" +
+                "        YEAR: 17'\n" +
+                "        HOBBIES: Gymnastics, Hiking, etc.", "Date of birth", "Other"};*/
+        String[] values = new String[]{"BoulderBandidio","AGE: 22",
+                "MAJOR: Electrical and Computer Engineering",
+                "YEAR: 17\'","HOBBIES: Gymnastics, Hiking, etc."};
+                ArrayList<String> valueslist = new ArrayList<String>();
+
         valueslist.addAll (Arrays.asList(values));
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, valueslist);

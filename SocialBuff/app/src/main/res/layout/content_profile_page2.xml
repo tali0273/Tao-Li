@@ -8,9 +8,15 @@
     tools:context="com.example.isaia.socialbuff.ProfilePage2"
     tools:showIn="@layout/activity_profile_page2">
 
+
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/list"
-        android:contextClickable="false" />
+        android:contextClickable="false"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:gravity="center"/>
+
 </android.support.v4.widget.NestedScrollView>
