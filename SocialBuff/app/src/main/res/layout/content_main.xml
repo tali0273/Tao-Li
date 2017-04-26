@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="MY FEED"
         android:layout_centerHorizontal="true"
-        android:textColor="#DAA520"
+        android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold|italic"
         android:textSize="30sp"
         android:background="@drawable/activity_title"
@@ -30,19 +30,81 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/main_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
         android:background="@drawable/newsfeed_black_border">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:id="@+id/ll"
+            android:layout_margin="10sp">
+
+            <EditText
+                android:id="@+id/compose_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_margin="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/feed_example1"
+                android:textSize="16dp"
+                android:textColor="#000000"
+                android:visibility = "gone"
+                android:background="@drawable/newsfeed_border"
+                android:id="@+id/mystatus" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LIKE"
+                android:id="@+id/Like0"
+                android:visibility="gone"
+                android:background="#848484"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:text="No comments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    android:visibility="gone"
+                    android:background="@drawable/comment_border"
+                    android:id="@+id/comments0" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textLongMessage"
+                    android:textColor="#696969"
+                    android:ems="8"
+                    android:textSize="10dp"
+                    android:visibility="gone"
+                    android:hint="Add a comment"
+                    android:layout_toRightOf="@id/Like0"
+                    android:id="@+id/editText0"
+                    android:layout_marginBottom="80dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feed_example1"
+                android:textSize="16dp"
                 android:textColor="#000000"
                 android:background="@drawable/newsfeed_border"
                 android:id="@+id/Feed1" />
@@ -64,11 +126,24 @@
                 android:layout_height="match_parent"
                 android:focusable="true"
                 android:focusableInTouchMode="true">
+
+                <TextView
+                    android:text="No comments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    android:background="@drawable/comment_border"
+                    android:id="@+id/comments1" />
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textLongMessage"
-                    android:ems="6"
+                    android:textColor="#696969"
+                    android:ems="8"
+                    android:textSize="10dp"
+                    android:hint="Add a comment"
                     android:layout_toRightOf="@id/Like1"
                     android:id="@+id/editText1" />
 
@@ -80,8 +155,9 @@
                 android:text="@string/feed_example1"
                 android:textColor="#000000"
                 android:id="@+id/Feed2"
+                android:textSize="16dp"
                 android:background="@drawable/newsfeed_border"
-                android:layout_marginTop="27dp"/>
+                android:layout_marginTop="80dp"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,11 +171,22 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <TextView
+                    android:text="No comments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    android:background="@drawable/comment_border"
+                    android:id="@+id/comments2" />
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
+                    android:textColor="#696969"
+                    android:textSize="10dp"
+                    android:hint="Add a comment"
                     android:layout_toRightOf="@id/Like1"
                     android:id="@+id/editText2" />
 
@@ -111,8 +198,9 @@
                 android:text="@string/feed_example3"
                 android:textColor="#000000"
                 android:id="@+id/Feed3"
+                android:textSize="16dp"
                 android:background="@drawable/newsfeed_border"
-                android:layout_marginTop="27dp"/>
+                android:layout_marginTop="80dp"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -126,11 +214,22 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <TextView
+                    android:text="No comments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    android:background="@drawable/comment_border"
+                    android:id="@+id/comments3" />
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
+                    android:textColor="#696969"
+                    android:textSize="10dp"
+                    android:hint="Add a comment"
                     android:layout_toRightOf="@id/Like1"
                     android:id="@+id/editText3" />
 
@@ -142,8 +241,9 @@
                 android:text="@string/feed_example2"
                 android:textColor="#000000"
                 android:id="@+id/Feed4"
+                android:textSize="16dp"
                 android:background="@drawable/newsfeed_border"
-                android:layout_marginTop="27dp"/>
+                android:layout_marginTop="80dp"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -157,18 +257,27 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <TextView
+                    android:text="No comments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    android:background="@drawable/comment_border"
+                    android:id="@+id/comments4" />
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:layout_toRightOf="@id/Like1"
+                    android:textSize="10dp"
+                    android:textColor="#696969"
+                    android:hint="Add a comment"
+                    android:layout_marginBottom="20dp"
                     android:id="@+id/editText4" />
 
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
-
 
 </RelativeLayout>
