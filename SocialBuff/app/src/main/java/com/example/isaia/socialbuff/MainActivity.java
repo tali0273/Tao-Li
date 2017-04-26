@@ -8,6 +8,9 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputEditText;
+import android.text.method.KeyListener;
+import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,20 +20,154 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.example.isaia.socialbuff.R.id.comments0;
+import static com.example.isaia.socialbuff.R.id.editText1;
 import static com.example.isaia.socialbuff.R.id.fab;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     boolean sign_out = false;
+    EditText newcomment0;
+    EditText newcomment1;
+    EditText newcomment2;
+    EditText newcomment3;
+    EditText newcomment4;
+    EditText new_status;
+    TextView comment0;
+    TextView comment1;
+    TextView comment2;
+    TextView comment3;
+    TextView comment4;
+    TextView mystatus;
+    Button like0;
+    Button like1;
+    Button like2;
+    Button like3;
+    Button like4;
+    int like_count0 = 0;
+    int like_count1 = 0;
+    int like_count2 = 0;
+    int like_count3 = 0;
+    int like_count4 = 0;
+    String name = new String("Isaiah Sierra");
+    private KeyListener originalKeyListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        new_status = (EditText) findViewById(R.id.compose_status);
+        new_status.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                mystatus.setText(name + " - "+new_status.getText().toString());
+                newcomment0.setVisibility(View.VISIBLE);
+                comment0.setVisibility(View.VISIBLE);
+                like0.setVisibility(View.VISIBLE);
+                mystatus.setVisibility(View.VISIBLE);
+                new_status.setVisibility(View.GONE);
+                return true;
+            }
+        });
+        originalKeyListener = new_status.getKeyListener();
+        new_status.setKeyListener(null);
+        comment0 = (TextView) findViewById(R.id.comments0);
+        comment1 = (TextView) findViewById(R.id.comments1);
+        comment2 = (TextView) findViewById(R.id.comments2);
+        comment3 = (TextView) findViewById(R.id.comments3);
+        comment4 = (TextView) findViewById(R.id.comments4);
+        mystatus = (TextView) findViewById(R.id.mystatus);
+        final String status = new String("THIS IS MY STATUS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+        newcomment0 = (EditText) findViewById(R.id.editText0);
+        newcomment0.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                comment0.setText(newcomment0.getText().toString());
+                return true;
+            }
+        });
+        newcomment1 = (EditText) findViewById(R.id.editText1);
+        newcomment1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                comment1.setText(newcomment1.getText().toString());
+                return true;
+            }
+        });
+        newcomment2 = (EditText) findViewById(R.id.editText2);
+        newcomment2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                comment2.setText(newcomment2.getText().toString());
+                return true;
+            }
+        });
+        newcomment3 = (EditText) findViewById(R.id.editText3);
+        newcomment3.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                comment3.setText(newcomment3.getText().toString());
+                return true;
+            }
+        });
+        newcomment4 = (EditText) findViewById(R.id.editText4);
+        newcomment4.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                comment4.setText(newcomment4.getText().toString());
+                return true;
+            }
+        });
+        like0 = (Button) findViewById(R.id.Like0);
+        like0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                like_count0++;
+                Toast.makeText(getApplicationContext(),"LIKED! ("+String.valueOf(like0)+")",Toast.LENGTH_SHORT).show();
+            }
+        });
+        like1 = (Button) findViewById(R.id.Like1);
+        like1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                like_count1++;
+                Toast.makeText(getApplicationContext(),"LIKED! ("+String.valueOf(like1)+")",Toast.LENGTH_SHORT).show();
+            }
+        });
+        like2 = (Button) findViewById(R.id.Like2);
+        like2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                like_count2++;
+                Toast.makeText(getApplicationContext(),"LIKED!("+String.valueOf(like2)+")",Toast.LENGTH_SHORT).show();
+            }
+        });
+        like3 = (Button) findViewById(R.id.Like3);
+        like3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                like_count3++;
+                Toast.makeText(getApplicationContext(),"LIKED!("+String.valueOf(like3)+")",Toast.LENGTH_SHORT).show();
+            }
+        });
+        like4 = (Button) findViewById(R.id.Like4);
+        like4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                like_count4++;
+                Toast.makeText(getApplicationContext(),"LIKED! ("+String.valueOf(like4)+")",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         TextView main_text = (TextView) findViewById(R.id.main_text);
@@ -38,9 +175,37 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "You have opened your messages.", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "New Post", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                startActivity(new Intent(MainActivity.this, MessageActivity.class));
+                //mystatus.setText(name+" - "+status);
+                new_status.setKeyListener(originalKeyListener);
+                // Focus the field.
+                new_status.requestFocus();
+                // Show soft keyboard for the user to enter the value.
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.showSoftInput(new_status, InputMethodManager.SHOW_IMPLICIT);
+                //
+                /**new_status.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                    @Override
+                    public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                        mystatus.setText(imm.toString());
+                        return true;
+                    }
+                });*/
+            }
+        });
+
+        new_status.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                // If it loses focus...
+                if (!hasFocus) {
+                    // Hide soft keyboard.
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(new_status.getWindowToken(), 0);
+                    // Make it non-editable again.
+                    new_status.setKeyListener(null);
+                }
             }
         });
 
