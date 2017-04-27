@@ -36,6 +36,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.isaia.socialbuff.MainActivity" />
+        </activity>
 
         <activity
             android:name=".ProfilePage2"
@@ -46,24 +54,28 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.isaia.socialbuff.MainActivity" />
         </activity>
+
         <activity
-            android:name=".MessageActivity"
+            android:name=".sendmessage"
             android:label="@string/title_activity_message"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="com.example.isaia.socialbuff.MessageActivity" />
+                <action android:name="com.example.isaia.socialbuff.sendmessage" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
-        android:name=".gallery"
-        android:label="gallery"
+            android:name=".Gallery"
+            android:label="Gallery"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="com.example.isaia.socialbuff.MessageActivity" />
+                <action android:name="com.example.isaia.socialbuff.gallery" />
 
                 <category android:name="android.intent.category.DEFAULT" />
+
             </intent-filter>
         </activity>
     </application>

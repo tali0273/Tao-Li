@@ -36,11 +36,18 @@ public class ProfilePage2 extends AppCompatActivity {
                 "        MAJOR: Electrical and Computer Engineering\n" +
                 "        YEAR: 17'\n" +
                 "        HOBBIES: Gymnastics, Hiking, etc.", "Date of birth", "Other"};*/
+        /*
         String[] values = new String[]{"BoulderBandidio","AGE: 22",
                 "MAJOR: Electrical and Computer Engineering",
                 "YEAR: 17' ","HOBBIES: Gymnastics, Hiking, etc."};
+                */
+        User u = UserDatabase.getCurrentUser();
+        String[] values = new String[]{u.getName(), "AGE: " + u.getAge(),
+                "MAJOR: " + u.getMajor(), "YEAR: " + u.getYear(),
+                "HOBBIES: NOT YET IMPLEMENTED"};
                 //ArrayList<String> valueslist = new ArrayList<String>();
-
+        TextView t = (TextView) findViewById(R.id.textView);
+        t.setText(u.getName());
         ArrayAdapter <String> profile_info = new ArrayAdapter<String>(this, R.layout.my_profile_items, values);
         ListView my_info = (ListView) findViewById(R.id.list);
         my_info.setAdapter(profile_info);
