@@ -77,16 +77,16 @@ public class ProfilePage2 extends AppCompatActivity {
                 String message;
 
                 if(position == 0){
-                    message = "You clicked # 0, which is string: " + textView.getText().toString();
+                    message = "You clicked " + textView.getText().toString();
                 }
                 else if(position == 1){
-                    message = "You clicked # 1, which is string: " + textView.getText().toString();
+                    message = "You clicked " + textView.getText().toString();
                 }
                 else if(position == 2){
-                    message = "You clicked # 2, which is string: " + textView.getText().toString();
+                    message = "You clicked " + textView.getText().toString();
                 }
                 else{
-                    message = "You clicked # 3, which is string: " + textView.getText().toString();
+                    message = "You clicked " + textView.getText().toString();
                 }
                 Toast.makeText(ProfilePage2.this, message, Toast.LENGTH_LONG).show();
 

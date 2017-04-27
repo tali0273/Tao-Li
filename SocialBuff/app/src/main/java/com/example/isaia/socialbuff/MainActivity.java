@@ -84,8 +84,6 @@ public class MainActivity extends AppCompatActivity
         comment3 = (TextView) findViewById(R.id.comments3);
         comment4 = (TextView) findViewById(R.id.comments4);
         mystatus = (TextView) findViewById(R.id.mystatus);
-        final String status = new String("THIS IS MY STATUS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
         newcomment0 = (EditText) findViewById(R.id.editText0);
         newcomment0.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -131,7 +129,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 like_count0++;
-                Toast.makeText(getApplicationContext(),"LIKED! ("+String.valueOf(like0)+")",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"LIKED! ("+like_count0+")",Toast.LENGTH_SHORT).show();
             }
         });
         like1 = (Button) findViewById(R.id.Like1);
@@ -139,7 +137,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 like_count1++;
-                Toast.makeText(getApplicationContext(),"LIKED! ("+String.valueOf(like1)+")",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"LIKED! ("+like_count1+")",Toast.LENGTH_SHORT).show();
             }
         });
         like2 = (Button) findViewById(R.id.Like2);
@@ -147,7 +145,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 like_count2++;
-                Toast.makeText(getApplicationContext(),"LIKED!("+String.valueOf(like2)+")",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"LIKED!("+like_count2+")",Toast.LENGTH_SHORT).show();
             }
         });
         like3 = (Button) findViewById(R.id.Like3);
@@ -155,7 +153,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 like_count3++;
-                Toast.makeText(getApplicationContext(),"LIKED!("+String.valueOf(like3)+")",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"LIKED!("+like_count3+")",Toast.LENGTH_SHORT).show();
             }
         });
         like4 = (Button) findViewById(R.id.Like4);
@@ -163,7 +161,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 like_count4++;
-                Toast.makeText(getApplicationContext(),"LIKED! ("+String.valueOf(like4)+")",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"LIKED! ("+like_count4+")",Toast.LENGTH_SHORT).show();
             }
         });
 
