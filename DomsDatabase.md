@@ -1,5 +1,5 @@
 # Database Tutorial
-This is an overview on how to use the Database api to manage users
+This is an overview on how to use the Database api to manage users. There are two types of objects, UserDatabase and User. UserDatabase stores and manages everything and User just represents a single user that you can get information from.
 ```java
 UserDatabase database = UserDatabase.getDatabase();
 User user = UserDatabase.getCurrentUser();
@@ -24,4 +24,12 @@ user.getYear()
 user.getID()
 user.getEmail()
 user.getPassword()
+```
+Example usage:
+```java
+UserDatabase database = UserDatabase.getDatabase();
+database.addUser("Dom", "dom@colorado.edu", "password", 20, "comp sci", 2019);
+User userdom = database.getUserByEmail("dom@colorado.edu");
+System.out.println(userdom.getMajor());
+//should print "comp sci"
 ```
