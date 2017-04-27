@@ -2,14 +2,20 @@
 This is an overview on how to use our custom built Database api to manage users. There are two types of objects, UserDatabase and User. UserDatabase stores and manages everything and User just represents a single user that you can get information from.
 ```java
 UserDatabase database = UserDatabase.getDatabase();
+//returns the current database object
 User user = UserDatabase.getCurrentUser();
+//returns the currently logged in user
+UserDatabase.setCurrentUser(User u);
+//changes the currently logged in user
 ```
 This gets the database and the current user from anywhere in the app!
 ### Things you can do to UserDatabase
 ```java
 //Things you can do to database
-database.getUserById(int id); //returns a User object
-database.getUserByEmail(String email); //returns a User object
+database.getUserById(int id);
+//returns a User object
+database.getUserByEmail(String email);
+//returns a User object
 database.addUser(String name, String email, String password, int age, String major, int year);
 //returns true if the user was added, false if user already exists.
 database.removeUser(int id);
