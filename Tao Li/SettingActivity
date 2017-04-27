@@ -1,0 +1,159 @@
+package com.example.isaia.socialbuff;
+
+/**
+ * Created by Tao on 4/26/17.
+ */
+
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.PreferenceActivity;
+import android.support.v7.app.ActionBar;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
+import android.preference.RingtonePreference;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.List;
+
+public class SettingActivity extends AppCompatActivity {
+
+
+
+    private static boolean isLargeTablet(Context context) {
+        return (context.getResources().getConfiguration().screenLayout
+                & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+    }
+    //private static Button button_sbm;
+    //private static Button button_abm;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_setting);
+        //OnClickButtonListener();
+    }
+
+
+    public void showGreeting(View view){
+        String button_text;
+        button_text = ((Button) view).getText().toString();
+        if(button_text.equals("General")){
+            Intent intent = new Intent(this,SettingGeneral.class);
+                startActivity(intent);
+        }
+        else if (button_text.equals("Notification")){
+            Intent intent = new Intent(this,SettingNotification.class);
+            startActivity(intent);
+        }
+        else if (button_text.equals("Data and Sync")){
+            Intent intent = new Intent(this,SettingDS.class);
+            startActivity(intent);
+        }
+    }
+    //public void OnClickButtonListener(){
+        //button_sbm = (Button)findViewById(R.id.radioButton);
+        //button_sbm.setOnClickListener(
+                //new View.OnClickListener() {
+                    @Override
+                    //public void onClick(View view) {
+                        //Intent intent = new Intent("com.example.isaia.socialbuff.SettingGeneral");
+                        //startActivity(intent);
+                    //}
+                //}
+        //);
+    //}
+
+
+   // @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            // Show the Up button in the action bar.
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    protected boolean isValidFragment(String fragmentName) {
+        return PreferenceFragment.class.getName().equals(fragmentName)
+                || GeneralPreferenceFragment.class.getName().equals(fragmentName);
+    }
+
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    //public static class GeneralPreferenceFragment extends PreferenceFragment {
+        //@Override
+        //public void onCreate(Bundle savedInstanceState) {
+            //super.onCreate(savedInstanceState);
+            //int preferenceFile_toLoad=-1;
+            //String settings = getArguments().getString("settings");
+            //if ("prefs_general".equalsIgnoreCase(settings)) {
+                // Load the preferences from an XML resource
+                //preferenceFile_toLoad= R.xml.pref_general;
+            //}else if ("prefs_notification".equalsIgnoreCase(settings)) {
+                // Load the preferences from an XML resource
+               // preferenceFile_toLoad=R.xml.pref_notification;
+            //}else if ("prefs_sync".equals(settings)) {
+                // Load the preferences from an XML resource
+               // preferenceFile_toLoad=R.xml.pref_data_sync;
+            //}
+
+            //addPreferencesFromResource(preferenceFile_toLoad);
+
+
+       // }
+
+
+
+    //}
+
+    public static class GeneralPreferenceFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            int preferenceFile_toLoad=-1;
+            String settings = getArguments().getString("settings");
+            if ("prefs_general".equalsIgnoreCase(settings)) {
+                // Load the preferences from an XML resource
+                preferenceFile_toLoad= R.xml.pref_general;
+            }else if ("prefs_notification".equalsIgnoreCase(settings)) {
+                // Load the preferences from an XML resource
+                preferenceFile_toLoad=R.xml.pref_notification;
+            }else if ("prefs_sync".equals(settings)) {
+                // Load the preferences from an XML resource
+                preferenceFile_toLoad=R.xml.pref_data_sync;
+            }
+
+            addPreferencesFromResource(preferenceFile_toLoad);
+
+
+        }
+
+
+
+    }
+
+
+}
