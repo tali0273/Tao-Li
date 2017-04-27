@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         UserDatabase.initDatabase(getFilesDir());
+        //UserDatabase.getDatabase().addUser("Ben2", "b@colorado.edu", "samt", 20, "Physics", 2019);
         setupActionBar();
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);

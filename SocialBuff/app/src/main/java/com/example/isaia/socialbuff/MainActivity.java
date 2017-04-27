@@ -71,6 +71,15 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView t1 = (TextView) findViewById(R.id.Feed1);
+        TextView t2 = (TextView) findViewById(R.id.Feed2);
+        TextView t3 = (TextView) findViewById(R.id.Feed3);
+        TextView t4 = (TextView) findViewById(R.id.Feed4);
+        UserDatabase database = UserDatabase.getDatabase();
+        t1.setText(database.getRecentMessage(1));
+        t2.setText(database.getRecentMessage(2));
+        t3.setText(database.getRecentMessage(3));
+        t4.setText(database.getRecentMessage(4));
 
         new_status = (EditText) findViewById(R.id.compose_status);
         new_status.setOnEditorActionListener(new TextView.OnEditorActionListener() {

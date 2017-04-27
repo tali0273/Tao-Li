@@ -19,8 +19,14 @@ import java.util.Random;
     DO NOT MODIFY THIS FILE PLEASE
  */
 
+class Message {
+    int id;
+    String message;
+}
+
 public class UserDatabase {
     private List<User> userlist;
+    private List<Message> messagelist;
     private File dir;
     private static UserDatabase data1;
     private static User currentUser;
@@ -29,20 +35,24 @@ public class UserDatabase {
     public static void setCurrentUser(User u) {currentUser = u;}
     public static User getCurrentUser() {return currentUser;}
 
+
     public UserDatabase(File dir1) {
         dir = dir1;
         userlist = new ArrayList<User>();
+        messagelist = new ArrayList<Message>();
         parseusers();
+        parsemessages();
         //for (User u: userlist) System.out.println(u.getEmail());
     }
     public boolean addUser(String name1, String email1, String password1, int age1, String major1, int year1) {
         for (User u: userlist) if (u.getEmail().equals(email1)) return false;
         userlist.add(new User(name1, email1, password1, age1, major1, year1, getFreeID()));
-        save();
+        writeusers();
         return true;
     }
     public void save() {
         writeusers();
+        writemessages();
     }
     public User getUserByEmail(String email) {
         for (User u: userlist) if (u.getEmail().equals(email)) return u;
@@ -56,11 +66,33 @@ public class UserDatabase {
         for (int t = 0; t < userlist.size(); ++t) {
             if(userlist.get(t).getID() == id) {
                 userlist.remove(t);
-                save();
+                writeusers();
                 return true;
             }
         }
         return false;
+    }
+    public void addMessage(int id, String message) {
+        if (message == null) message = "";
+        Message m = new Message();
+        m.id = id;
+        m.message = message;
+        messagelist.add(m);
+        writemessages();
+    }
+    public void addMessage(User u, String message) {
+        addMessage(u.getID(), message);
+    }
+    public String getRecentMessage() {
+        return getRecentMessage(1);
+    }
+    public String getRecentMessage(int n) {
+        if (n > messagelist.size()) return "ERROR: message does not exist";
+        String s = "";
+        Message m = messagelist.get(messagelist.size() - n);
+        if (getUserByID(m.id) == null) s += "Deleted User: ";
+        else s += getUserByID(m.id).getName() + ": ";
+        return s + m.message;
     }
 
     private int getFreeID() {
@@ -74,6 +106,56 @@ public class UserDatabase {
             b = temp;
         }
         return newid;
+    }
+
+    private void parsemessages() {
+        File userl = new File(dir, "messagelist");
+        if (!userl.exists()) {
+            Message m1 = new Message();
+            Message m2 = new Message();
+            Message m3 = new Message();
+            Message m4 = new Message();
+            m1.id = m2.id = m3.id = m4.id = 420;
+            m1.message = m2.message = m3.message = "Test post 1. If you're seeing this these are the default messages when no others exist.";
+            m4.message = "These posts should be replaced as more are posted!";
+            messagelist.add(m1);
+            messagelist.add(m2);
+            messagelist.add(m3);
+            messagelist.add(m4);
+            return;
+        }
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(userl));
+            String s;
+            while ((s = br.readLine()) != null) {
+                int id = Integer.valueOf(s);
+                String message = br.readLine();
+                User u = getUserByID(id);
+                Message m = new Message();
+                m.id = id;
+                m.message = message;
+                messagelist.add(m);
+            }
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void writemessages() {
+        File file = new File(dir, "messagelist");
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            //fos.write(string.getBytes());
+            for (Message m: messagelist) {
+                fos.write((m.id + "\n").getBytes());
+                fos.write((m.message + "\n").getBytes());
+            }
+            fos.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void parseusers() {
@@ -123,6 +205,5 @@ public class UserDatabase {
         catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
