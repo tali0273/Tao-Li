@@ -8,8 +8,8 @@ This gets the database and the current user from anywhere in the app!
 ### Things you can do to UserDatabase
 ```java
 //Things you can do to database
-database.getUserById(int); //returns a User object
-database.getUserByEmail(String); //returns a User object
+database.getUserById(int id); //returns a User object
+database.getUserByEmail(String email); //returns a User object
 database.addUser(String name, String email, String password, int age, String major, int year);
 //returns true if the user was added, false if user already exists.
 database.removeUser(int id);
