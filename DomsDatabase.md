@@ -5,6 +5,7 @@ UserDatabase database = UserDatabase.getDatabase();
 User user = UserDatabase.getCurrentUser();
 ```
 This gets the database and the current user from anywhere in the app!
+### Things you can do to UserDatabase
 ```java
 //Things you can do to database
 database.getUserById(int); //returns a User object
@@ -14,6 +15,7 @@ database.addUser(String name, String email, String password, int age, String maj
 database.removeUser(int id);
 //removes a user by their ID
 ```
+### Things you can do to User objects
 Remember to check if a user is null after looking them up in the database!
 ```java
 //Things you can do to User objects
@@ -25,7 +27,7 @@ user.getID()
 user.getEmail()
 user.getPassword()
 ```
-Example usage:
+### Example usage:
 ```java
 UserDatabase database = UserDatabase.getDatabase();
 database.addUser("Dom", "dom@colorado.edu", "password", 20, "comp sci", 2019);
