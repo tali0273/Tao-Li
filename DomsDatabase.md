@@ -14,6 +14,12 @@ database.addUser(String name, String email, String password, int age, String maj
 //returns true if the user was added, false if user already exists.
 database.removeUser(int id);
 //removes a user by their ID
+database.addMessage(User u, String message);
+//adds a message to the global message board
+database.getRecentMessage(int n);
+//returns a string containing the nth most recent message
+database.getRecentMessage(1);
+//gets the most recent message
 ```
 ### Things you can do to User objects
 Remember to check if a user is null after looking them up in the database!
