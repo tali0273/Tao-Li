@@ -68,6 +68,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        UserDatabase.initDatabase(getFilesDir());
         setupActionBar();
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -173,12 +174,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         boolean cancel = false;
         View focusView = null;
 
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
@@ -190,6 +185,30 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mEmailView.setError(getString(R.string.error_invalid_email));
             Toast.makeText(this, "Must be a CU student to use Social Buff.", Toast.LENGTH_LONG).show();
             focusView = mEmailView;
+            cancel = true;
+        }
+        else {
+            UserDatabase database = UserDatabase.getDatabase();
+            User myuser = database.getUserByEmail(email);
+            if (myuser == null) {
+                mEmailView.setError(getString(R.string.error_invalid_email));
+                Toast.makeText(this, "This email is not currently registered.", Toast.LENGTH_LONG).show();
+                focusView = mEmailView;
+                cancel = true;
+            }
+            else UserDatabase.setCurrentUser(myuser);
+        }
+        // Check for a valid password, if the user entered one.
+        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+            mPasswordView.setError(getString(R.string.error_invalid_password));
+            focusView = mPasswordView;
+            cancel = true;
+        }
+        else if (UserDatabase.getCurrentUser() == null) cancel = true;
+        else if (!UserDatabase.getCurrentUser().getPassword().equals(password)) {
+            //mPasswordView.setError(getString(R.string.error_invalid_password));
+            Toast.makeText(this, "Your password is incorrect.", Toast.LENGTH_LONG).show();
+            focusView = mPasswordView;
             cancel = true;
         }
 
@@ -217,7 +236,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() > 2;
     }
 
     /**

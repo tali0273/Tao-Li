@@ -26,7 +26,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Context;
+
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
 
 import static com.example.isaia.socialbuff.R.id.comments0;
 import static com.example.isaia.socialbuff.R.id.editText1;
@@ -64,6 +70,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         new_status = (EditText) findViewById(R.id.compose_status);
         new_status.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -291,17 +298,44 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             Toast.makeText(this, "You Opened Your Photos", Toast.LENGTH_LONG).show();
 
+
         } else if (id == R.id.nav_slideshow) {
             Toast.makeText(this, "You Opened Your Messages", Toast.LENGTH_LONG).show();
             startActivity(new Intent(MainActivity.this, MessageActivity.class));
 
         } else if (id == R.id.nav_manage) {
-            Toast.makeText(this, "You Opened Your Settings", Toast.LENGTH_LONG).show();
+            String FILENAME = "hello_file";
+            String string = "hello world!";
+
+            File file = new File(getFilesDir(), FILENAME);
+            try {
+                FileOutputStream fos = new FileOutputStream(file);
+                fos.write(string.getBytes());
+                fos.write("hello number 2!".getBytes());
+                fos.close();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            Toast.makeText(this, "File: Written", Toast.LENGTH_LONG).show();
             //startActivity(new Intent(MainActivity.this, LoginActivity.class));
             //Need a settin menu here
 
         } else if (id == R.id.nav_share) {
-            Toast.makeText(this, "Let's Share", Toast.LENGTH_LONG).show();
+            String FILENAME = "hello_file";
+
+            File file = new File(getFilesDir(), FILENAME);
+            String s = "failure\n";
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(file));
+                s = br.readLine();
+                s = br.readLine();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Toast.makeText(this, "File Contents: " + s, Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_send) {
             Toast.makeText(this, "Sent.", Toast.LENGTH_LONG).show();
