@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.method.KeyListener;
 import android.view.KeyEvent;
 import android.view.View;
@@ -76,23 +78,35 @@ public class MainActivity extends AppCompatActivity
         TextView t2 = (TextView) findViewById(R.id.Feed2);
         TextView t3 = (TextView) findViewById(R.id.Feed3);
         TextView t4 = (TextView) findViewById(R.id.Feed4);
-        UserDatabase database = UserDatabase.getDatabase();
+        final UserDatabase database = UserDatabase.getDatabase();
         t1.setText(database.getRecentMessage(1));
         t2.setText(database.getRecentMessage(2));
         t3.setText(database.getRecentMessage(3));
         t4.setText(database.getRecentMessage(4));
+        final User user = UserDatabase.getCurrentUser();
 
         new_status = (EditText) findViewById(R.id.compose_status);
-        new_status.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        new_status.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                mystatus.setText(name + " - "+new_status.getText().toString());
-                newcomment0.setVisibility(View.VISIBLE);
-                comment0.setVisibility(View.VISIBLE);
-                like0.setVisibility(View.VISIBLE);
-                mystatus.setVisibility(View.VISIBLE);
-                new_status.setVisibility(View.GONE);
-                return true;
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.charAt(s.length() - 1) == '\n') {
+                    mystatus.setText(user.getName() + " - " + new_status.getText().toString());
+                    newcomment0.setVisibility(View.VISIBLE);
+                    comment0.setVisibility(View.VISIBLE);
+                    like0.setVisibility(View.VISIBLE);
+                    mystatus.setVisibility(View.VISIBLE);
+                    new_status.setVisibility(View.GONE);
+                }
             }
         });
         originalKeyListener = new_status.getKeyListener();
@@ -194,7 +208,6 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "New Post", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                //mystatus.setText(name+" - "+status);
                 new_status.setKeyListener(originalKeyListener);
                 // Focus the field.
                 new_status.requestFocus();
@@ -202,13 +215,6 @@ public class MainActivity extends AppCompatActivity
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.showSoftInput(new_status, InputMethodManager.SHOW_IMPLICIT);
                 //
-                /**new_status.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                    @Override
-                    public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                        mystatus.setText(imm.toString());
-                        return true;
-                    }
-                });*/
             }
         });
 
