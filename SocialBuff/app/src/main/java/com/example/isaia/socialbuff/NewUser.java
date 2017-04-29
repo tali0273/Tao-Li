@@ -1,5 +1,6 @@
 package com.example.isaia.socialbuff;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IntegerRes;
 import android.support.design.widget.FloatingActionButton;
@@ -93,6 +94,7 @@ public class NewUser extends AppCompatActivity implements AdapterView.OnItemSele
         if(myuser == null) {
             database.addUser(full_name, email.getText().toString(), password__.getText().toString(), Integer.parseInt(age), major.getText().toString(), Integer.parseInt(year_add));
             Toast.makeText(this, "Account Created: " + full_name, Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(NewUser.this, LoginActivity.class));
         }
         else {
             Toast.makeText(this, "Email already in use",Toast.LENGTH_SHORT).show();

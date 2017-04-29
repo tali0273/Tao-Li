@@ -306,15 +306,15 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Toast.makeText(this, "You Opened Your Profile", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "You Opened Your Profile", Toast.LENGTH_LONG).show();
             startActivity(new Intent(MainActivity.this, ProfilePage2.class));
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            Toast.makeText(this, "You Opened Your Photos", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "You Opened Your Photos", Toast.LENGTH_LONG).show();
 
 
         } else if (id == R.id.nav_slideshow) {
-            Toast.makeText(this, "You Opened Your Messages", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "You Opened Your Messages", Toast.LENGTH_LONG).show();
             startActivity(new Intent(MainActivity.this, MessageActivity.class));
 
         } else if (id == R.id.nav_manage) {
