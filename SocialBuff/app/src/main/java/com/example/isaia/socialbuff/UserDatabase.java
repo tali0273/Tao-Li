@@ -163,6 +163,7 @@ public class UserDatabase {
         File userl = new File(dir, "userlist");
         if (!userl.exists()) {
             userlist.add(new User("Dominic", "dominic.deckys@colorado.edu", "pass", 20, "comp sci", 2019, 420));
+            userlist.add(new User("Test User", "a@colorado.ed", "pass", 2, "undeclared", 2018, 231));
             return;
         }
         try {

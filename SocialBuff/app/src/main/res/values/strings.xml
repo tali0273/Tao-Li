@@ -10,9 +10,10 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password </string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="new_user">Sign Up</string>
     <string name="action_sign_in_short">Social Buff</string>
-    <string name="error_invalid_email">Invalid email must be @colorado.edu</string>
+    <string name="error_invalid_email">Invalid email</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
@@ -118,4 +119,16 @@ Nonummy mauris curae;, aliquam gravida leo curabitur mauris turpis non quisque s
         YEAR: 17'
         HOBBIES: Gymnastics, Hiking, etc.
         "</string>
+    <string name="title_activity_new_user">NewUser</string>
+
+    <!--Graduating Years-->
+    <string name="year_enter">Choose Year</string>
+
+    <string-array name="years">
+        <item>Choose Year</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+    </string-array>
 </resources>

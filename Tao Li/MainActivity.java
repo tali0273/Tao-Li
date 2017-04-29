@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.text.method.KeyListener;
 import android.view.KeyEvent;
 import android.view.View;
@@ -27,14 +25,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.Context;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
 
 import static com.example.isaia.socialbuff.R.id.comments0;
 import static com.example.isaia.socialbuff.R.id.editText1;
@@ -42,7 +32,6 @@ import static com.example.isaia.socialbuff.R.id.fab;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
     boolean sign_out = false;
     EditText newcomment0;
     EditText newcomment1;
@@ -74,39 +63,17 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView t1 = (TextView) findViewById(R.id.Feed1);
-        TextView t2 = (TextView) findViewById(R.id.Feed2);
-        TextView t3 = (TextView) findViewById(R.id.Feed3);
-        TextView t4 = (TextView) findViewById(R.id.Feed4);
-        final UserDatabase database = UserDatabase.getDatabase();
-        t1.setText(database.getRecentMessage(1));
-        t2.setText(database.getRecentMessage(2));
-        t3.setText(database.getRecentMessage(3));
-        t4.setText(database.getRecentMessage(4));
-        final User user = UserDatabase.getCurrentUser();
-
         new_status = (EditText) findViewById(R.id.compose_status);
-        new_status.addTextChangedListener(new TextWatcher() {
+        new_status.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s.charAt(s.length() - 1) == '\n') {
-                    mystatus.setText(user.getName() + " - " + new_status.getText().toString());
-                    newcomment0.setVisibility(View.VISIBLE);
-                    comment0.setVisibility(View.VISIBLE);
-                    like0.setVisibility(View.VISIBLE);
-                    mystatus.setVisibility(View.VISIBLE);
-                    new_status.setVisibility(View.GONE);
-                }
+            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                mystatus.setText(name + " - "+new_status.getText().toString());
+                newcomment0.setVisibility(View.VISIBLE);
+                comment0.setVisibility(View.VISIBLE);
+                like0.setVisibility(View.VISIBLE);
+                mystatus.setVisibility(View.VISIBLE);
+                new_status.setVisibility(View.GONE);
+                return true;
             }
         });
         originalKeyListener = new_status.getKeyListener();
@@ -117,6 +84,8 @@ public class MainActivity extends AppCompatActivity
         comment3 = (TextView) findViewById(R.id.comments3);
         comment4 = (TextView) findViewById(R.id.comments4);
         mystatus = (TextView) findViewById(R.id.mystatus);
+        final String status = new String("THIS IS MY STATUS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
         newcomment0 = (EditText) findViewById(R.id.editText0);
         newcomment0.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -162,7 +131,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 like_count0++;
-                Toast.makeText(getApplicationContext(),"LIKED! ("+like_count0+")",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"LIKED! ("+String.valueOf(like0)+")",Toast.LENGTH_SHORT).show();
             }
         });
         like1 = (Button) findViewById(R.id.Like1);
@@ -170,7 +139,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 like_count1++;
-                Toast.makeText(getApplicationContext(),"LIKED! ("+like_count1+")",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"LIKED! ("+String.valueOf(like1)+")",Toast.LENGTH_SHORT).show();
             }
         });
         like2 = (Button) findViewById(R.id.Like2);
@@ -178,7 +147,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 like_count2++;
-                Toast.makeText(getApplicationContext(),"LIKED!("+like_count2+")",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"LIKED!("+String.valueOf(like2)+")",Toast.LENGTH_SHORT).show();
             }
         });
         like3 = (Button) findViewById(R.id.Like3);
@@ -186,7 +155,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 like_count3++;
-                Toast.makeText(getApplicationContext(),"LIKED!("+like_count3+")",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"LIKED!("+String.valueOf(like3)+")",Toast.LENGTH_SHORT).show();
             }
         });
         like4 = (Button) findViewById(R.id.Like4);
@@ -194,7 +163,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 like_count4++;
-                Toast.makeText(getApplicationContext(),"LIKED! ("+like_count4+")",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"LIKED! ("+String.valueOf(like4)+")",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -208,6 +177,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "New Post", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                //mystatus.setText(name+" - "+status);
                 new_status.setKeyListener(originalKeyListener);
                 // Focus the field.
                 new_status.requestFocus();
@@ -215,6 +185,13 @@ public class MainActivity extends AppCompatActivity
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.showSoftInput(new_status, InputMethodManager.SHOW_IMPLICIT);
                 //
+                /**new_status.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                    @Override
+                    public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                        mystatus.setText(imm.toString());
+                        return true;
+                    }
+                });*/
             }
         });
 
@@ -240,6 +217,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
 
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.package.ACTION_LOGOUT");
@@ -306,55 +284,30 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            //Toast.makeText(this, "You Opened Your Profile", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "You Opened Your Profile", Toast.LENGTH_LONG).show();
             startActivity(new Intent(MainActivity.this, ProfilePage2.class));
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            //Toast.makeText(this, "You Opened Your Photos", Toast.LENGTH_LONG).show();
-
+            Toast.makeText(this, "You Opened Your Photos", Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_slideshow) {
-            //Toast.makeText(this, "You Opened Your Messages", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "You Opened Your Messages", Toast.LENGTH_LONG).show();
             startActivity(new Intent(MainActivity.this, MessageActivity.class));
 
         } else if (id == R.id.nav_manage) {
-            String FILENAME = "hello_file";
-            String string = "hello world!";
-
-            File file = new File(getFilesDir(), FILENAME);
-            try {
-                FileOutputStream fos = new FileOutputStream(file);
-                fos.write(string.getBytes());
-                fos.write("hello number 2!".getBytes());
-                fos.close();
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-            Toast.makeText(this, "File: Written", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "You Opened Your Settings", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(MainActivity.this, SettingActivity.class));
             //startActivity(new Intent(MainActivity.this, LoginActivity.class));
             //Need a settin menu here
 
         } else if (id == R.id.nav_share) {
-            String FILENAME = "hello_file";
-
-            File file = new File(getFilesDir(), FILENAME);
-            String s = "failure\n";
-            try {
-                BufferedReader br = new BufferedReader(new FileReader(file));
-                s = br.readLine();
-                s = br.readLine();
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Toast.makeText(this, "File Contents: " + s, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Let's Share", Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_send) {
             Toast.makeText(this, "Sent.", Toast.LENGTH_LONG).show();
 
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

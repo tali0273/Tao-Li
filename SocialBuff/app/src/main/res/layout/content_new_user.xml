@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_new_user"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.isaia.socialbuff.NewUser"
+    tools:showIn="@layout/activity_new_user">
+
+    <TextView
+        android:text="Register"
+        android:textSize="35dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+    android:layout_width="270dp"
+    android:layout_height="wrap_content"
+    android:inputType="textPersonName"
+    android:ems="10"
+    android:hint="First Name"
+        android:textSize="17dp"
+    android:layout_below="@+id/textView2"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="25dp"
+    android:background="@drawable/sign_up_border"
+    android:id="@+id/first_name" />
+
+    <EditText
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:hint="Last Name"
+        android:textSize="17dp"
+        android:layout_below="@+id/first_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/sign_up_border"
+        android:id="@+id/last_name" />
+
+    <EditText
+    android:layout_width="270dp"
+    android:layout_height="wrap_content"
+    android:inputType="textEmailAddress"
+    android:ems="10"
+    android:hint="Email"
+        android:textSize="17dp"
+    android:layout_below="@+id/last_name"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/sign_up_border"
+    android:id="@+id/email_address" />
+
+    <EditText
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:hint="Password"
+        android:textSize="17dp"
+        android:layout_below="@+id/email_address"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/sign_up_border"
+        android:id="@+id/password" />
+
+    <EditText
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:textSize="17dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/sign_up_border"
+        android:id="@+id/password_confirm" />
+
+    <EditText
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:textSize="17dp"
+        android:ems="10"
+        android:hint="Major"
+        android:layout_below="@+id/birthdate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/sign_up_border"
+        android:id="@+id/major"/>
+    <EditText
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:textSize="17dp"
+        android:ems="10"
+        android:hint="Age"
+        android:layout_below="@+id/password_confirm"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/sign_up_border"
+        android:id="@+id/birthdate"/>
+
+    <Spinner
+        android:layout_width="270dp"
+        android:layout_height="35dp"
+        android:background="@drawable/sign_up_border"
+        android:id="@+id/year"
+        android:prompt="@string/year_enter"
+        android:entries="@array/years"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/major"
+        android:layout_alignStart="@+id/major" />
+
+    <Button
+        android:text="Create User"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:id="@+id/create_user"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/year"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
