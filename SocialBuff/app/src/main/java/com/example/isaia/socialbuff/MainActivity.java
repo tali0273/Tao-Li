@@ -40,6 +40,7 @@ import static com.example.isaia.socialbuff.R.id.fab;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
     boolean sign_out = false;
     EditText newcomment0;
     EditText newcomment1;

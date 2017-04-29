@@ -97,6 +97,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        Button signUp = (Button) findViewById(R.id.sign_up);
+        signUp.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, NewUser.class));
+            }
+        });
     }
 
     private void populateAutoComplete() {

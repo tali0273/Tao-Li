@@ -61,7 +61,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:textColor="@color/colorPrimaryDark"
                 android:text="@string/action_sign_in" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Sign Up"
+                android:id="@+id/sign_up" />
 
         </LinearLayout>
     </ScrollView>
