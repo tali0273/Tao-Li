@@ -52,6 +52,8 @@ public class ProfilePage2 extends AppCompatActivity {
         ListView my_info = (ListView) findViewById(R.id.list);
         my_info.setAdapter(profile_info);
 
+
+
         registerClickCallback();
         /* I removed this button I think
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

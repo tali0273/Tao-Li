@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity
         TextView t2 = (TextView) findViewById(R.id.Feed2);
         TextView t3 = (TextView) findViewById(R.id.Feed3);
         TextView t4 = (TextView) findViewById(R.id.Feed4);
-        UserDatabase database = UserDatabase.getDatabase();
+        final UserDatabase database = UserDatabase.getDatabase();
         t1.setText(database.getRecentMessage(1));
         t2.setText(database.getRecentMessage(2));
         t3.setText(database.getRecentMessage(3));
@@ -85,12 +85,14 @@ public class MainActivity extends AppCompatActivity
         new_status.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                mystatus.setText(name + " - "+new_status.getText().toString());
+                mystatus.setText(UserDatabase.getCurrentUser().getName() + " - "+new_status.getText().toString());
                 newcomment0.setVisibility(View.VISIBLE);
                 comment0.setVisibility(View.VISIBLE);
                 like0.setVisibility(View.VISIBLE);
                 mystatus.setVisibility(View.VISIBLE);
                 new_status.setVisibility(View.GONE);
+
+
                 return true;
             }
         });
