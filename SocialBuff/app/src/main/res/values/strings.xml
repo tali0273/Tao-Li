@@ -131,4 +131,5 @@ Nonummy mauris curae;, aliquam gravida leo curabitur mauris turpis non quisque s
         <item>2019</item>
         <item>2020</item>
     </string-array>
+    <string name="title_activity_sendmessage">sendmessage</string>
 </resources>
