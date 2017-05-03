@@ -325,10 +325,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
             //Toast.makeText(this, "You Opened Your Messages", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(MainActivity.this, MessageActivity.class));
+            //startActivity(new Intent(MainActivity.this, sendmessage.class));
 
         } else if (id == R.id.nav_manage) {
-            String FILENAME = "hello_file";
+
+           /*String FILENAME = "hello_file";
             String string = "hello world!";
 
             File file = new File(getFilesDir(), FILENAME);
@@ -341,12 +342,12 @@ public class MainActivity extends AppCompatActivity
             catch (IOException e) {
                 e.printStackTrace();
             }
-            Toast.makeText(this, "File: Written", Toast.LENGTH_LONG).show();
-            //startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            Toast.makeText(this, "File: Written", Toast.LENGTH_LONG).show();*/
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             //Need a settin menu here
 
         } else if (id == R.id.nav_share) {
-            String FILENAME = "hello_file";
+            /*String FILENAME = "hello_file";
 
             File file = new File(getFilesDir(), FILENAME);
             String s = "failure\n";
@@ -359,7 +360,7 @@ public class MainActivity extends AppCompatActivity
                 e.printStackTrace();
             }
 
-            Toast.makeText(this, "File Contents: " + s, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "File Contents: " + s, Toast.LENGTH_LONG).show();*/
 
         } else if (id == R.id.nav_send) {
             Toast.makeText(this, "Sent.", Toast.LENGTH_LONG).show();
