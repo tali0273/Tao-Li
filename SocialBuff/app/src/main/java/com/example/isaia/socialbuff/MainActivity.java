@@ -69,21 +69,25 @@ public class MainActivity extends AppCompatActivity
     String name = new String("Isaiah Sierra");
     private KeyListener originalKeyListener;
 
+    private void refreshPosts() {
+        TextView t1 = (TextView) findViewById(R.id.Feed1);
+        TextView t2 = (TextView) findViewById(R.id.Feed2);
+        TextView t3 = (TextView) findViewById(R.id.Feed3);
+        TextView t4 = (TextView) findViewById(R.id.Feed4);
+        UserDatabase database = UserDatabase.getDatabase();
+        t1.setText(database.getRecentMessage(1));
+        t2.setText(database.getRecentMessage(2));
+        t3.setText(database.getRecentMessage(3));
+        t4.setText(database.getRecentMessage(4));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView t1 = (TextView) findViewById(R.id.Feed1);
-        TextView t2 = (TextView) findViewById(R.id.Feed2);
-        TextView t3 = (TextView) findViewById(R.id.Feed3);
-        TextView t4 = (TextView) findViewById(R.id.Feed4);
-        final UserDatabase database = UserDatabase.getDatabase();
-        t1.setText(database.getRecentMessage(1));
-        t2.setText(database.getRecentMessage(2));
-        t3.setText(database.getRecentMessage(3));
-        t4.setText(database.getRecentMessage(4));
-        final User user = UserDatabase.getCurrentUser();
+        refreshPosts();
+        //final User user = UserDatabase.getCurrentUser();
 
         new_status = (EditText) findViewById(R.id.compose_status);
         new_status.addTextChangedListener(new TextWatcher() {
@@ -100,12 +104,17 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.charAt(s.length() - 1) == '\n') {
-                    mystatus.setText(user.getName() + " - " + new_status.getText().toString());
+                    User user = UserDatabase.getCurrentUser();
+                    mystatus.setText(user.getName() + ": " + new_status.getText().toString());
                     newcomment0.setVisibility(View.VISIBLE);
                     comment0.setVisibility(View.VISIBLE);
                     like0.setVisibility(View.VISIBLE);
                     mystatus.setVisibility(View.VISIBLE);
                     new_status.setVisibility(View.GONE);
+
+                    UserDatabase database = UserDatabase.getDatabase();
+                    database.addMessage(user, new_status.getText().toString());
+                    refreshPosts();
                 }
             }
         });
@@ -296,7 +305,8 @@ public class MainActivity extends AppCompatActivity
     }
     private void sign_out(){
         Intent broadcastIntent = new Intent();
-        broadcastIntent.setAction("com.package.ACTION_LOGOUT");
+        //broadcastIntent.setAction("com.package.ACTION_LOGOUT");
+        broadcastIntent.setAction("com.example.isaia.socialbuff.LoginActivity");
         sendBroadcast(broadcastIntent);
     }
     @SuppressWarnings("StatementWithEmptyBody")
