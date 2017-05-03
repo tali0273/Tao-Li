@@ -31,8 +31,18 @@ public class UserDatabase {
     private static UserDatabase data1;
     private static User currentUser;
     public static void initDatabase(File dir1) {data1 = new UserDatabase(dir1);}
+    /**
+     * Static method to return the current app-wide instance of the database object
+     *
+     * @return the current database object
+     */
     public static UserDatabase getDatabase() {return data1;}
     public static void setCurrentUser(User u) {currentUser = u;}
+    /**
+     * Static method to return the current logged in user in the app
+     *
+     * @return the current User object
+     */
     public static User getCurrentUser() {return currentUser;}
 
 
