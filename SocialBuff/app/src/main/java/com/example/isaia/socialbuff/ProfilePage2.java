@@ -44,7 +44,7 @@ public class ProfilePage2 extends AppCompatActivity {
         User u = UserDatabase.getCurrentUser();
         String[] values = new String[]{u.getName(), "AGE: " + u.getAge(),
                 "MAJOR: " + u.getMajor(), "YEAR: " + u.getYear(),
-                "HOBBIES: NOT YET IMPLEMENTED"};
+                "HOBBIES: "};
                 //ArrayList<String> valueslist = new ArrayList<String>();
         TextView t = (TextView) findViewById(R.id.textView);
         t.setText(u.getName());

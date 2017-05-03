@@ -105,12 +105,14 @@ public class MainActivity extends AppCompatActivity
             public void afterTextChanged(Editable s) {
                 if (s.charAt(s.length() - 1) == '\n') {
                     User user = UserDatabase.getCurrentUser();
+                    /*
                     mystatus.setText(user.getName() + ": " + new_status.getText().toString());
                     newcomment0.setVisibility(View.VISIBLE);
                     comment0.setVisibility(View.VISIBLE);
                     like0.setVisibility(View.VISIBLE);
                     mystatus.setVisibility(View.VISIBLE);
                     new_status.setVisibility(View.GONE);
+                    */
 
                     UserDatabase database = UserDatabase.getDatabase();
                     database.addMessage(user, new_status.getText().toString());
@@ -305,8 +307,8 @@ public class MainActivity extends AppCompatActivity
     }
     private void sign_out(){
         Intent broadcastIntent = new Intent();
-        //broadcastIntent.setAction("com.package.ACTION_LOGOUT");
-        broadcastIntent.setAction("com.example.isaia.socialbuff.LoginActivity");
+        broadcastIntent.setAction("com.package.ACTION_LOGOUT");
+        //broadcastIntent.setAction("com.example.isaia.socialbuff.LoginActivity");
         sendBroadcast(broadcastIntent);
     }
     @SuppressWarnings("StatementWithEmptyBody")
