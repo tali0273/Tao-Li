@@ -42,3 +42,8 @@ We will be using the Agile methodology.
 
 ## Project Tracking Software:
 We will be using Github's build in tracking softwhere Issues and Milestones: https://github.com/tali0273/csci3308-project/milestones
+
+## Deployment
+In order to deploy our Android Application you will need the Android Studio IDE which can be found at : 
+https://developer.android.com/studio/index.html 
+Once you have the ide installed you will need either clone the repository from our GitHub repository (https://github.com/tali0273/csci3308-project) , or simply download the Social Buff folder from our repository and open the project using this folder. It should simply load the project using the Android project build.gradle file.
